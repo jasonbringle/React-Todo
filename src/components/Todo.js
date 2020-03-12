@@ -1,19 +1,18 @@
-import React from 'react'
-import React from 'react'
+import React from "react";
 
-export default class TodoForm extends React.Component {
-    constructor(props){
-        super(props);
-        this.state={
-            task:''
-        }
-    }
-
-    
-
-    render() {
-        return(
-         <div></div>
-        )
-    }
+const Todo = props => {
+  return (
+    <div className="todoContainer">
+        <div className="todo">
+            <div 
+            className={`thing${props.thing.completed ? " completed": ""}`}
+            onClick={e => props.toggleFinished(props.thing.id)}
+            >
+            <p>{props.thing.taskName}</p>
+            </div>
+        </div>
+    </div>
+  );
+  
 }
+export default Todo;
