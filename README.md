@@ -16,7 +16,7 @@ We're going to practice building a stateful class component with this project. E
 
 ![Todo App MVP](todo.gif)
 
-- Your todo data should be an array of objects that look a lot like this:
+- Your  todo data should be an array of objects that look a lot like this:
 
 ```js
 [
