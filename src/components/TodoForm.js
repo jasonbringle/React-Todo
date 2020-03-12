@@ -14,16 +14,18 @@ export default class TodoForm extends React.Component {
   };
 
   addTask = e => {
-    this.props.addTodo(this.state.taskName);
     e.preventDefault();
+    this.props.addTodo(this.state.taskName);
+    this.setState({taskName: ''})
   };
 
   render() {
     return (
-      <form  onSubmit={this.addTask}>
+      <form className='form' onSubmit={this.addTask}>
         <input
           type="text"
           name="task"
+          value={this.state.taskName}
           placeholder="Task Name"
           onChange={this.handleChange}
         />
