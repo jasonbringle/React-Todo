@@ -5,14 +5,14 @@ import Header from './components/Header'
 import './components/Todo.css'
 
 
-const todos = [
+const todosForReal = [
   {
-    taskName: "Organize Garage",
+    taskName: "Make a Todo!",
     id: 1528817077286,
     completed: false
   },
   {
-    taskName: "Bake Cookies",
+    taskName: "You Can Select and Delete Me When You Are Done!",
     id: 1528817084358,
     completed: false
   }
@@ -23,17 +23,17 @@ class App extends React.Component {
   constructor() {
     super();
     this.state = {
-      todos: todos
+      todos: todosForReal
     };
   }
   // design `App` to be the parent component of your application.
   // this component is going to take care of state, and any change handlers you need to work with your state
-  addTodo = taskName => {
+  addTodo = name => {
     this.setState({
       todos: [
         ...this.state.todos,
         {
-          taskName: taskName,
+          taskName: name,
           id: Date.now(),
           completed: false
         }
@@ -42,11 +42,12 @@ class App extends React.Component {
   };
 
   toggleFinished = id => {
+    console.log(id)
     this.setState({
       todos: this.state.todos.map(item => {
         if (item.id === id){
           return {
-            ...id,
+            ...item,
             completed: !item.completed
           };
         }

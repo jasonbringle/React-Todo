@@ -5,7 +5,7 @@ export default function Header(props){
 
     return(
         <div className='header'>
-        <h1>To Do's</h1>
+        <h1>TO DO's</h1>
         <TodoForm addTodo={props.addTodo}/>
         </div>
     )

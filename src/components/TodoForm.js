@@ -20,7 +20,7 @@ export default class TodoForm extends React.Component {
 
   render() {
     return (
-      <form onSubmit={this.addTask}>
+      <form  onSubmit={this.addTask}>
         <input
           type="text"
           name="task"
