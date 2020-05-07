@@ -3,11 +3,13 @@ import TodoForm from './TodoForm'
 
 const Header = (props) =>{
     return (
-        <div>
+    <div className="header">
     <h1>TODOS</h1>
-    <TodoForm addTodo={props.addTodo} 
-    taskName={props.taskName}
-    handleChange={props.handleChange}/>
+    <TodoForm 
+        addTodo={props.addTodo} 
+        taskName={props.taskName}
+        handleChange={props.handleChange}
+        />
     </div>
     )
 }

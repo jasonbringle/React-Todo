@@ -1,13 +1,17 @@
 import React from 'react'
 import Todo from './Todo'
+// import TodoForm from './TodoForm'
 // your components will all go in this `component` directory.
 // feel free to change this component.js into TodoList.js
 const TodoList = props => {
     return <div>
-        {props.initialTodos.map(todo => {
-            return <Todo todo={todo} />
-            })
-        }</div>
+        <div>
+            {props.todos.map(todoData => <Todo clickHandler={props.clickHandler} data={todoData}/>)}
+        </div>
+        <button
+        onClick={props.clearSelected}
+        >Clear Todo</button>
+        </div>
 
 }
 export default TodoList;

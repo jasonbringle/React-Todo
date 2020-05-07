@@ -1,7 +1,14 @@
 import React from "react"
 
 const Todo = props => {
-    return (<h1>{props.todo.task}</h1>
+    // console.log(props)
+    return (
+    <div 
+    className={`active${props.data.completed ? " no" : ""}`}
+    onClick={e => props.clickHandler(props.data.id)}
+    >
+        <h1>{props.data.task}</h1>
+    </div>
         )
 
 }

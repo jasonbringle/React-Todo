@@ -1,0 +1,24 @@
+.header{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    background-color: pink;
+    box-shadow: 10px 10px 60px 10px black;
+    align-items: center;
+    height: 125px;
+}
+
+.active{
+    /* width: 45%; */
+    height: Auto;
+    text-align: left;
+    margin: 4px 0;
+    padding-left: 8px;
+    cursor: pointer;
+  }
+
+  .active.no{
+    /* background-color: #d17d7c; */
+    text-decoration: line-through;
+    text-decoration-color: purple;
+  }
