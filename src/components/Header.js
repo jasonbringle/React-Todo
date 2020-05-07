@@ -1,6 +1,14 @@
-import React from 'react'
+import React from 'react';
+import TodoForm from './TodoForm'
 
-const Header = ()=>{
-    return <p>TODOS</p>
+const Header = (props) =>{
+    return (
+        <div>
+    <h1>TODOS</h1>
+    <TodoForm addTodo={props.addTodo} 
+    taskName={props.taskName}
+    handleChange={props.handleChange}/>
+    </div>
+    )
 }
 export default Header;

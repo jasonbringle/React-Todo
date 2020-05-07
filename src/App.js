@@ -2,7 +2,7 @@ import React from 'react';
 import TodoList from './components/TodoList'
 import Header from './components/Header'
 
-initialTodos = [
+const initialTodos = [
   {
     task: 'Organize Garage',
     id: 1528817077286,
@@ -19,16 +19,35 @@ class App extends React.Component {
   constructor(){
     super()
     this.state = {
-      todos: initialTodos
+      todos: initialTodos,
+      taskName: ''
     }
   }
-  // you will need a place to store your state in this component.
-  // design `App` to be the parent component of your application.
-  // this component is going to take care of state, and any change handlers you need to work with your state
+
+  addTodo = name => {
+    this.setState({
+      todos: [
+        ...this.state.todos,
+        {
+          taskName: name,
+          id: Date.now(),
+          completed: false
+        }
+      ]
+    });
+  }
+
+  handleChange = e => {
+    this.setState({taskName: e.target.value})
+  }
+
+  
   render() {
     return (
       <div>
-        <Header />
+        <Header addTodo={this.addTodo} 
+        taskName={this.state.taskName}
+        handleChange={this.handleChange}/>
         <TodoList initialTodos={initialTodos} />
       </div>
     );
