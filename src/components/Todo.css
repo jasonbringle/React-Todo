@@ -1,24 +1,113 @@
+
+@import url('https://fonts.googleapis.com/css?family=Roboto');
+@import url('https://fonts.googleapis.com/css2?family=Comfortaa:wght@100;200&family=Satisfy&display=swap');
+html,
+body {
+  width: 100%;
+  height: 100%;
+  margin: 0;
+  padding: 0;
+}
+
+/* body {
+  background-color: #2d2d37;
+} */
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+div,
+p,
+span {
+  /* color: white; */
+  font-family:'Satisfy', cursive ;
+}
+
+.App {
+  font-family: sans-serif;
+  text-align: center;
+  padding: 0 36px;
+  max-width: 665px;
+  margin: 0 auto;
+}
+
+.headerContainer{
+    display:flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    width:100%;
+}
+
 .header{
     display: flex;
     flex-direction: column;
     justify-content: center;
     background-color: pink;
+    background-color:rgba(255, 160, 160, 0.5);
     box-shadow: 10px 10px 60px 10px black;
     align-items: center;
     height: 125px;
 }
 
+
+p{
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+}
+
 .active{
-    /* width: 45%; */
-    height: Auto;
-    text-align: left;
-    margin: 4px 0;
-    padding-left: 8px;
-    cursor: pointer;
+  /* width: 45%; */
+  height: Auto;
+  text-align: left;
+  margin: 4px 0;
+  padding-left: 8px;
+  cursor: pointer;
+}
+
+.active.no{
+    background-color: #d17d7c;
+    text-decoration: line-through;
+    text-decoration-color: black;
   }
 
-  .active.no{
-    /* background-color: #d17d7c; */
-    text-decoration: line-through;
-    text-decoration-color: purple;
-  }
+.todo{
+    display:flex;
+    justify-content: center;
+    align-items: center;
+    /* background-color: pink; */
+    width: 9rem;
+    height: 10rem;
+    font-size: 1rem;
+    box-shadow: 0px 70px 90px 5px black;
+    background-image: url("../img/notepaper.jpg");
+    background-size: 150px auto;
+    background-repeat: no-repeat;
+}
+
+.todoContainer{
+    display:flex;
+    flex-direction: column;
+    align-content: center;
+    align-items: center;
+    padding:1rem;
+
+}
+
+.clearButton{
+    display:flex;
+    justify-content:center;
+}
+
+.main-page{
+  display:flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: center;
+  background-image: url("../img/paper.jpg");    
+  background-size: cover;
+  background-repeat:repeat;
+  height: 100vh;
+
+}

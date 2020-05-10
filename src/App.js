@@ -67,11 +67,11 @@ class App extends React.Component {
 
 
   render() {
-    console.log(this.state)
+    // console.log(this.state)
     return (
-      <div>
-        <Header addTodo={this.addTodo}  taskName={this.state.taskName}  handleChange={this.handleChange}/>
-        <TodoList clearSelected={this.clearSelected} clickHandler={this.clickHandler} todos={this.state.todos}/>
+      <div className='main-page'>
+          <Header addTodo={this.addTodo}  taskName={this.state.taskName}  handleChange={this.handleChange}/>
+          <TodoList clearSelected={this.clearSelected} clickHandler={this.clickHandler} todos={this.state.todos}/>
       </div>
     );
   }
