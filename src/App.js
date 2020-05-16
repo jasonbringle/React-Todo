@@ -25,7 +25,7 @@ class App extends React.Component {
     }
   }
 
-  addTodo = e => {
+  addTodo = (e) => {
     e.preventDefault();
     this.setState({
       todos: [
