@@ -10,19 +10,19 @@ export const App = () =>{
 
   // const [ todos, setTodos] = useState (initialTodos)
   // const [taskName, setTaskName] = useState ('')
-  const [todos, setTodos, taskName, handleChange] = useForm()
+  const [todos, setTodos, taskName, handleChange, addTodo] = useForm()
 
-  const addTodo = (e) => {
-    e.preventDefault();
-    setTodos([...todos,
-        {
-          task: taskName,
-          id: Date.now(),
-          completed: false
-        }
-      ]);
-    console.log(todos)
-  }
+  // const addTodo = (e) => {
+  //   e.preventDefault();
+  //   setTodos([...todos,
+  //       {
+  //         task: taskName,
+  //         id: Date.now(),
+  //         completed: false
+  //       }
+  //     ]);
+  //   console.log(todos)
+  // }
 
   // const handleChange = e => {
   //   setTaskName(e.target.value)

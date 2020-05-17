@@ -21,7 +21,19 @@ const [taskName, setTaskName] = useState ('')
         setTaskName(e.target.value)
       }
 
-return [todos, setTodos, taskName, handleChange]
+    const addTodo = (e) => {
+    e.preventDefault();
+    setTodos([...todos,
+        {
+            task: taskName,
+            id: Date.now(),
+            completed: false
+        }
+        ]);
+    console.log(todos)
+    }
+
+return [todos, setTodos, taskName, handleChange, addTodo]
 
 }
 export default useForm
