@@ -33,7 +33,20 @@ const [taskName, setTaskName] = useState ('')
     console.log(todos)
     }
 
-return [todos, setTodos, taskName, handleChange, addTodo]
+    const clickHandler = id => {
+        setTodos(todos.map(item => {
+            if (item.id === id){
+              return {
+                ...item,
+                completed: !item.completed
+              };
+            }
+            return item;
+          })
+        )
+      }
+
+return [todos, setTodos, taskName, handleChange, addTodo, clickHandler]
 
 }
 export default useForm
