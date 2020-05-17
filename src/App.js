@@ -1,32 +1,16 @@
-import React, { useState} from 'react';
-import TodoList from './components/TodoList'
+import React from 'react';
+// import TodoList from './components/TodoList'
 import Header from './components/Header'
 import './components/Todo.css'
+import useForm from './components/hooks/useForm'
 
-const initialTodos = [
-  {
-    task: 'Organize Garage',
-    id: 1528817077286,
-    completed: false
-  },
-  {
-    task: 'Bake Cookies',
-    id: 1528817084358,
-    completed: false
-  }
-];
+
 
 export const App = () =>{
-  // constructor(){
-  //   super()
-  //   this.state = {
-  //     todos: initialTodos,
-  //     taskName: ''
-  //   }
-  // }
 
-  const [ todos, setTodos] = useState (initialTodos)
-  const [taskName, setTaskName] = useState ('')
+  // const [ todos, setTodos] = useState (initialTodos)
+  // const [taskName, setTaskName] = useState ('')
+  const [todos, setTodos, taskName, handleChange] = useForm()
 
   const addTodo = (e) => {
     e.preventDefault();
@@ -40,9 +24,9 @@ export const App = () =>{
     console.log(todos)
   }
 
-  const handleChange = e => {
-    setTaskName(e.target.value)
-  }
+  // const handleChange = e => {
+  //   setTaskName(e.target.value)
+  // }
 
   const clickHandler = id => {
     setTodos(todos.map(item => {
@@ -62,12 +46,45 @@ export const App = () =>{
         return !item.completed})
     )
   }
-
-    // console.log(this.state)
+  // console.log("todos in App.js", todos)
     return (
       <div className='main-page'>
-          <Header addTodo={addTodo}  taskName={taskName}  handleChange={handleChange}/>
-          <TodoList clearSelected={clearSelected} clickHandler={clickHandler} todos={todos}/>
+          <Header />
+          <div>
+            <form className='form' onSubmit={addTodo}>
+                <input type='text' 
+                name='To-do' 
+                placeholder='Item to do!'
+                value={taskName}
+                onChange={handleChange}
+                >
+                </input>
+                <button>Submit A To-do!</button>
+            </form>
+
+            <div className='todoContainer'>
+              <div>
+                {/* {console.log(todos)} */}
+                {todos.map(todoData => {
+                  return (
+                  <div className="todoContainer">
+                      <div className="todo">
+                          <div 
+                          className={`active${todoData.completed ? " no" : ""}`}
+                          onClick={e => clickHandler(todoData.id)}
+                          >
+                          <p>{todoData.task}</p>
+                          </div>
+                      </div>
+                  </div> )
+                  })
+                }
+              </div>
+
+              <button className="clearButton"onClick={clearSelected}>Clear Todo</button>
+            </div>
+          </div>
+          
       </div>
     );
   
