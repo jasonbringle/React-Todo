@@ -13,28 +13,27 @@ const initialTodos = [
     }
   ];
 
-const useForm = () => {
-const [ todos, setTodos] = useState (initialTodos)
-const [taskName, setTaskName] = useState ('')
+const useForm = (initialState) => {
+const [ todos, setTodo] = useState ({})
+// const [taskName, setTaskName] = useState ('')
+const [values, setValues] = useState(initialTodos);
 
     const handleChange = e => {
-        setTaskName(e.target.value)
-      }
+        setTodo([
+            ...values,
+            {[e.target.name]: e.target.value,
+            id: Date.now(),
+            completed: false}
+        ])
+    }
 
     const addTodo = (e) => {
-    e.preventDefault();
-    setTodos([...todos,
-        {
-            task: taskName,
-            id: Date.now(),
-            completed: false
-        }
-        ]);
-    console.log(todos)
+        e.preventDefault();
+        setValues(todos);
     }
 
     const clickHandler = id => {
-        setTodos(todos.map(item => {
+        setValues(values.map(item => {
             if (item.id === id){
               return {
                 ...item,
@@ -47,12 +46,12 @@ const [taskName, setTaskName] = useState ('')
     }
     
     const clearSelected = () => {
-    setTodos(todos.filter(item => {
+        setValues(values.filter(item => {
         return !item.completed})
     )
     }
 
-return [todos, setTodos, taskName, handleChange, addTodo, clickHandler, clearSelected]
+return [values, handleChange, addTodo, clickHandler, clearSelected]
 
 }
 export default useForm
