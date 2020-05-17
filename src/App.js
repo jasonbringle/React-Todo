@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState} from 'react';
 import TodoList from './components/TodoList'
 import Header from './components/Header'
 import './components/Todo.css'
@@ -16,37 +16,36 @@ const initialTodos = [
   }
 ];
 
-class App extends React.Component {
-  constructor(){
-    super()
-    this.state = {
-      todos: initialTodos,
-      taskName: ''
-    }
-  }
+export const App = () =>{
+  // constructor(){
+  //   super()
+  //   this.state = {
+  //     todos: initialTodos,
+  //     taskName: ''
+  //   }
+  // }
 
-  addTodo = (e) => {
+  const [ todos, setTodos] = useState (initialTodos)
+  const [taskName, setTaskName] = useState ('')
+
+  const addTodo = (e) => {
     e.preventDefault();
-    this.setState({
-      todos: [
-        ...this.state.todos,
+    setTodos([...todos,
         {
-          task: this.state.taskName,
+          task: taskName,
           id: Date.now(),
           completed: false
         }
-      ]
-    });
-    console.log(this.state)
+      ]);
+    console.log(todos)
   }
 
-  handleChange = e => {
-    this.setState({taskName: e.target.value})
+  const handleChange = e => {
+    setTaskName(e.target.value)
   }
 
-  clickHandler = id => {
-    this.setState({
-      todos: this.state.todos.map(item => {
+  const clickHandler = id => {
+    setTodos(todos.map(item => {
         if (item.id === id){
           return {
             ...item,
@@ -55,26 +54,23 @@ class App extends React.Component {
         }
         return item;
       })
-    })
+    )
   }
 
-  clearSelected = () => {
-    this.setState({
-      todos: this.state.todos.filter(item => {
+  const clearSelected = () => {
+    setTodos(todos.filter(item => {
         return !item.completed})
-    })
+    )
   }
 
-
-  render() {
     // console.log(this.state)
     return (
       <div className='main-page'>
-          <Header addTodo={this.addTodo}  taskName={this.state.taskName}  handleChange={this.handleChange}/>
-          <TodoList clearSelected={this.clearSelected} clickHandler={this.clickHandler} todos={this.state.todos}/>
+          <Header addTodo={addTodo}  taskName={taskName}  handleChange={handleChange}/>
+          <TodoList clearSelected={clearSelected} clickHandler={clickHandler} todos={todos}/>
       </div>
     );
-  }
+  
 }
 
 export default App;
