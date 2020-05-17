@@ -10,7 +10,7 @@ export const App = () =>{
 
   // const [ todos, setTodos] = useState (initialTodos)
   // const [taskName, setTaskName] = useState ('')
-  const [todos, setTodos, taskName, handleChange, addTodo, clickHandler] = useForm()
+  const [todos, setTodos, taskName, handleChange, addTodo, clickHandler, clearSelected] = useForm()
 
   // const addTodo = (e) => {
   //   e.preventDefault();
@@ -41,11 +41,11 @@ export const App = () =>{
   //   )
   // }
 
-  const clearSelected = () => {
-    setTodos(todos.filter(item => {
-        return !item.completed})
-    )
-  }
+  // const clearSelected = () => {
+  //   setTodos(todos.filter(item => {
+  //       return !item.completed})
+  //   )
+  // }
   // console.log("todos in App.js", todos)
     return (
       <div className='main-page'>

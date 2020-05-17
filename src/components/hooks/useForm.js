@@ -44,9 +44,15 @@ const [taskName, setTaskName] = useState ('')
             return item;
           })
         )
-      }
+    }
+    
+    const clearSelected = () => {
+    setTodos(todos.filter(item => {
+        return !item.completed})
+    )
+    }
 
-return [todos, setTodos, taskName, handleChange, addTodo, clickHandler]
+return [todos, setTodos, taskName, handleChange, addTodo, clickHandler, clearSelected]
 
 }
 export default useForm
