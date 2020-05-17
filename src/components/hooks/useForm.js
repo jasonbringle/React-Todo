@@ -1,4 +1,5 @@
 import { useState } from 'react';
+import useLocalStorage from './useLocalStorage'
 
 const initialTodos = [
     {
@@ -13,10 +14,10 @@ const initialTodos = [
     }
   ];
 
-const useForm = (initialState) => {
+const useForm = (initialState, key) => {
 const [ todos, setTodo] = useState ({})
 // const [taskName, setTaskName] = useState ('')
-const [values, setValues] = useState(initialTodos);
+const [values, setValues] = useLocalStorage(initialTodos, key);
 
     const handleChange = e => {
         setTodo([
@@ -30,6 +31,10 @@ const [values, setValues] = useState(initialTodos);
     const addTodo = (e) => {
         e.preventDefault();
         setValues(todos);
+        reset()
+    }
+
+    const reset = ()=> {
     }
 
     const clickHandler = id => {
