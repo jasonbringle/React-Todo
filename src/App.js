@@ -68,7 +68,7 @@ export const App = () =>{
 
             <div className='todoContainer'>
               <div>
-                {console.log("APP.js values", values)}
+                {/* {console.log("APP.js values", values)} */}
                 {/* {console.log("APP.js todos", todos)} */}
 
                 {values.map(todoData => {
