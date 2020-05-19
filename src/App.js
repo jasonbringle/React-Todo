@@ -73,7 +73,7 @@ export const App = () =>{
 
                 {values.map(todoData => {
                   return (
-                  <div key="todoData.id"className="todoContainer">
+                  <div key={todoData.id} className="todoContainer">
                       <div className="todo">
                           <div 
                           className={`active${todoData.completed ? " no" : ""}`}

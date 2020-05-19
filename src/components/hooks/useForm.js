@@ -15,7 +15,11 @@ const initialTodos = [
   ];
 
 const useForm = (initialState, key) => {
-const [ todos, setTodo] = useState ({})
+const [ todos, setTodo] = useState ({
+  task:'',
+  id: '',
+  completed: ''
+})
 // const [taskName, setTaskName] = useState ('')
 const [values, setValues] = useLocalStorage(initialTodos, key);
 
