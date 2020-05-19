@@ -20,21 +20,26 @@ const [ todos, setTodo] = useState ({})
 const [values, setValues] = useLocalStorage(initialTodos, key);
 
     const handleChange = e => {
-        setTodo([
-            ...values,
+        setTodo(
             {[e.target.name]: e.target.value,
             id: Date.now(),
             completed: false}
-        ])
+        )
     }
 
     const addTodo = (e) => {
         e.preventDefault();
-        setValues(todos);
-        reset()
+        setValues([...values,todos]);
+        clearField()
     }
 
-    const reset = ()=> {
+    const clearField = () => {
+      // setTodo({task:''});
+      setTodo({
+      task:'',
+      id: '',
+      completed: ''
+    })
     }
 
     const clickHandler = id => {
@@ -56,7 +61,7 @@ const [values, setValues] = useLocalStorage(initialTodos, key);
     )
     }
 
-return [values, handleChange, addTodo, clickHandler, clearSelected]
+return [values,todos, handleChange, addTodo, clickHandler, clearSelected ]
 
 }
 export default useForm

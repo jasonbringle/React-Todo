@@ -10,7 +10,7 @@ export const App = () =>{
 
   // const [ todos, setTodos] = useState (initialTodos)
   // const [taskName, setTaskName] = useState ('')
-  const [values, handleChange, addTodo, clickHandler, clearSelected] = useForm([{
+  const [values, todos, handleChange, addTodo, clickHandler, clearSelected] = useForm([{
     task:'',
     id:'',
     completed:''
@@ -58,7 +58,7 @@ export const App = () =>{
             <form className='form' onSubmit={addTodo}>
                 <input type='text' 
                 placeholder='Item to do!'
-                value={values.task}
+                value={todos.task}
                 onChange={handleChange}
                 name='task' 
                 >
@@ -68,7 +68,9 @@ export const App = () =>{
 
             <div className='todoContainer'>
               <div>
-                {/* {console.log("APP.js values", values)} */}
+                {console.log("APP.js values", values)}
+                {/* {console.log("APP.js todos", todos)} */}
+
                 {values.map(todoData => {
                   return (
                   <div key="todoData.id"className="todoContainer">
